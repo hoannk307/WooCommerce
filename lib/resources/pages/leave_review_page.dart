@@ -16,8 +16,8 @@ import 'package:flutter_app/resources/widgets/buttons.dart';
 import 'package:flutter_app/resources/widgets/safearea_widget.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:nylo_framework/nylo_framework.dart';
-import 'package:woosignal/models/response/order.dart';
-import 'package:woosignal/models/response/product_review.dart';
+import '../../app/models/core/order.dart';
+import '../../app/models/core/product_review.dart';
 import 'package:wp_json_api/models/responses/wc_customer_info_response.dart'
     as wc_customer_info;
 import 'package:wp_json_api/wp_json_api.dart';

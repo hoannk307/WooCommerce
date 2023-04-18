@@ -13,7 +13,7 @@ import 'package:flutter_app/app/models/checkout_session.dart';
 import 'package:flutter_app/app/models/customer_address.dart';
 import 'package:flutter_app/resources/widgets/woosignal_ui.dart';
 import 'package:nylo_framework/nylo_framework.dart';
-import 'package:woosignal/models/response/woosignal_app.dart';
+import '../../app/models/core/woosignal_app.dart';
 
 class CheckoutShippingTypeWidget extends StatelessWidget {
   const CheckoutShippingTypeWidget(

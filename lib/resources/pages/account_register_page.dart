@@ -19,7 +19,7 @@ import 'package:flutter_app/resources/widgets/buttons.dart';
 import 'package:flutter_app/resources/widgets/safearea_widget.dart';
 import 'package:flutter_app/resources/widgets/woosignal_ui.dart';
 import 'package:nylo_framework/nylo_framework.dart';
-import 'package:woosignal/models/response/woosignal_app.dart';
+import '../../app/models/core/woosignal_app.dart';
 import 'package:wp_json_api/exceptions/empty_username_exception.dart';
 import 'package:wp_json_api/exceptions/existing_user_email_exception.dart';
 import 'package:wp_json_api/exceptions/existing_user_login_exception.dart';

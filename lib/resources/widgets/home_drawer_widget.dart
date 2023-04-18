@@ -17,8 +17,8 @@ import 'package:flutter_app/resources/widgets/cached_image_widget.dart';
 import 'package:flutter_app/resources/widgets/woosignal_ui.dart';
 import 'package:nylo_framework/theme/helper/ny_theme.dart';
 import 'package:nylo_framework/nylo_framework.dart';
-import 'package:woosignal/models/menu_link.dart';
-import 'package:woosignal/models/response/woosignal_app.dart';
+import '../../app/models/core/menu_link.dart';
+import '../../app/models/core/woosignal_app.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class HomeDrawerWidget extends StatefulWidget {

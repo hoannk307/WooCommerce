@@ -13,7 +13,7 @@ import 'package:flutter_app/bootstrap/app_helper.dart';
 import 'package:flutter_app/resources/widgets/compo_theme_widget.dart';
 import 'package:flutter_app/resources/widgets/mello_theme_widget.dart';
 import 'package:flutter_app/resources/widgets/notic_theme_widget.dart';
-import 'package:woosignal/models/response/woosignal_app.dart';
+import '../../app/models/core/woosignal_app.dart';
 
 class HomePage extends StatefulWidget {
   HomePage();

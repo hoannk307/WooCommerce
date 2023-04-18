@@ -8,8 +8,8 @@ import 'package:flutter_app/config/design.dart';
 import 'package:flutter_app/config/theme.dart';
 import 'package:nylo_framework/nylo_framework.dart';
 import 'package:flutter_app/config/localization.dart';
-import 'package:woosignal/models/response/woosignal_app.dart';
-import 'package:woosignal/woosignal.dart';
+import '../models/core/woosignal_app.dart';
+import '../../woosignal.dart';
 import 'package:wp_json_api/wp_json_api.dart';
 
 class AppProvider implements NyProvider {

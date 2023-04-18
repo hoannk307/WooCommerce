@@ -13,8 +13,8 @@ import 'package:flutter_app/app/controllers/product_loader_controller.dart';
 import 'package:flutter_app/resources/widgets/app_loader_widget.dart';
 import 'package:flutter_app/resources/widgets/woosignal_ui.dart';
 import 'package:nylo_framework/nylo_framework.dart';
-import 'package:woosignal/models/response/products.dart';
-import 'package:woosignal/models/response/woosignal_app.dart';
+import '../../app/models/core/products.dart';
+import '../../app/models/core/woosignal_app.dart';
 
 class ProductDetailUpsellWidget extends StatefulWidget {
   ProductDetailUpsellWidget(

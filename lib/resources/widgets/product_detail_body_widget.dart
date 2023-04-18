@@ -15,8 +15,8 @@ import 'package:flutter_app/resources/widgets/product_detail_image_swiper_widget
 import 'package:flutter_app/resources/widgets/product_detail_related_products_widget.dart';
 import 'package:flutter_app/resources/widgets/product_detail_reviews_widget.dart';
 import 'package:flutter_app/resources/widgets/product_detail_upsell_widget.dart';
-import 'package:woosignal/models/response/products.dart';
-import 'package:woosignal/models/response/woosignal_app.dart';
+import '../../app/models/core/products.dart';
+import '../../app/models/core/woosignal_app.dart';
 
 class ProductDetailBodyWidget extends StatelessWidget {
   const ProductDetailBodyWidget(

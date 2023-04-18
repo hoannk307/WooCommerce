@@ -16,8 +16,7 @@ import 'package:flutter_app/bootstrap/helpers.dart';
 import 'package:nylo_framework/nylo_framework.dart';
 import 'package:woocommerce_api/woocommerce_api.dart';
 import '../models/core/products.dart';
-import 'package:woosignal/models/response/product_variation.dart'
-    as ws_product_variation;
+import '../models/core/product_variation.dart' as ws_product_variation;
 // ignore: depend_on_referenced_packages
 import 'controller.dart';
 
@@ -29,8 +28,8 @@ class ProductDetailController extends Controller {
   construct(BuildContext context) {
     super.construct(context);
 
-    product = data() as Product?;
-    //product = getProducts() as Product?;
+    //product = data() as Product?;
+    product = getProducts() as Product?;
   }
 
   Future getProducts() async {

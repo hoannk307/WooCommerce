@@ -9,7 +9,7 @@
 //  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 
 import 'package:flutter_app/bootstrap/helpers.dart';
-import 'package:woosignal/woosignal.dart';
+import '../../woosignal.dart';
 
 class WooSignalApiLoaderController<T> {
   List<T> _results = [];

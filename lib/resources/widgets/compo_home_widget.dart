@@ -18,9 +18,9 @@ import 'package:flutter_app/resources/widgets/home_drawer_widget.dart';
 import 'package:flutter_app/resources/widgets/woosignal_ui.dart';
 import 'package:flutter_swiper_view/flutter_swiper_view.dart';
 import 'package:nylo_framework/nylo_framework.dart';
-import 'package:woosignal/models/response/product_category.dart';
-import 'package:woosignal/models/response/woosignal_app.dart';
-import 'package:woosignal/models/response/products.dart';
+import '../../app/models/core/product_category.dart';
+import '../../app/models/core/woosignal_app.dart';
+import '../../app/models/core/products.dart';
 
 class CompoHomeWidget extends StatefulWidget {
   CompoHomeWidget({Key? key, required this.wooSignalApp}) : super(key: key);

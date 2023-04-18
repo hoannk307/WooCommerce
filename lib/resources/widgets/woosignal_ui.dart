@@ -23,8 +23,8 @@ import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:flutter_swiper_view/flutter_swiper_view.dart';
 import 'package:nylo_framework/nylo_framework.dart';
 import 'package:pull_to_refresh_flutter3/pull_to_refresh_flutter3.dart';
-import 'package:woosignal/models/response/products.dart';
-import 'package:woosignal/models/response/tax_rate.dart';
+import '../../app/models/core/products.dart';
+import '../../app/models/core/tax_rate.dart';
 
 class RefreshableScrollContainer extends StatelessWidget {
   const RefreshableScrollContainer(
@@ -264,15 +264,18 @@ class CheckoutMetaLine extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Container(
-    padding: EdgeInsets.symmetric(horizontal: 8),
-    child: Row(
+        padding: EdgeInsets.symmetric(horizontal: 8),
+        child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
             Flexible(
               child: Container(
                 child: AutoSizeText(title!,
-                    style: Theme.of(context).textTheme.bodyMedium!.copyWith(fontWeight: FontWeight.bold)),
+                    style: Theme.of(context)
+                        .textTheme
+                        .bodyMedium!
+                        .copyWith(fontWeight: FontWeight.bold)),
               ),
               flex: 3,
             ),
@@ -285,7 +288,7 @@ class CheckoutMetaLine extends StatelessWidget {
             )
           ],
         ),
-  );
+      );
 }
 
 List<BoxShadow> wsBoxShadow({double? blurRadius}) => [
@@ -511,14 +514,14 @@ class CheckoutTotal extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => NyFutureBuilder<String>(
-    future: CheckoutSession.getInstance
-        .total(withFormat: true, taxRate: taxRate),
-    child: (BuildContext context, data) => Padding(
-      child: CheckoutMetaLine(title: title, amount: data),
-      padding: EdgeInsets.only(bottom: 0, top: 15),
-    ),
-    loading: SizedBox.shrink(),
-  );
+        future: CheckoutSession.getInstance
+            .total(withFormat: true, taxRate: taxRate),
+        child: (BuildContext context, data) => Padding(
+          child: CheckoutMetaLine(title: title, amount: data),
+          padding: EdgeInsets.only(bottom: 0, top: 15),
+        ),
+        loading: SizedBox.shrink(),
+      );
 }
 
 class CheckoutTaxTotal extends StatelessWidget {
@@ -532,12 +535,12 @@ class CheckoutTaxTotal extends StatelessWidget {
         child: (BuildContext context, data) => (data == "0"
             ? Container()
             : Padding(
-          child: CheckoutMetaLine(
-            title: trans("Tax"),
-            amount: formatStringCurrency(total: data),
-          ),
-          padding: EdgeInsets.only(bottom: 0, top: 0),
-        )),
+                child: CheckoutMetaLine(
+                  title: trans("Tax"),
+                  amount: formatStringCurrency(total: data),
+                ),
+                padding: EdgeInsets.only(bottom: 0, top: 0),
+              )),
       );
 }
 
@@ -556,7 +559,7 @@ class CheckoutSubtotal extends StatelessWidget {
           ),
           padding: EdgeInsets.only(bottom: 0, top: 0),
         ),
-    loading: SizedBox.shrink(),
+        loading: SizedBox.shrink(),
       );
 }
 

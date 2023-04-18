@@ -22,10 +22,9 @@ import 'package:flutter_app/resources/widgets/product_detail_body_widget.dart';
 import 'package:flutter_app/resources/widgets/product_detail_footer_actions_widget.dart';
 import 'package:flutter_app/resources/widgets/woosignal_ui.dart';
 import 'package:nylo_framework/nylo_framework.dart';
-import 'package:woosignal/models/response/product_variation.dart'
-    as ws_product_variation;
-import 'package:woosignal/models/response/products.dart' as ws_product;
-import 'package:woosignal/models/response/woosignal_app.dart';
+import '../../app/models/core/product_variation.dart' as ws_product_variation;
+import '../../app/models/core/products.dart' as ws_product;
+import '../../app/models/core/woosignal_app.dart';
 
 class ProductDetailPage extends NyStatefulWidget {
   @override

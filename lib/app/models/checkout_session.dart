@@ -17,8 +17,8 @@ import 'package:flutter_app/app/models/shipping_type.dart';
 import 'package:flutter_app/bootstrap/helpers.dart';
 import 'package:flutter_app/bootstrap/shared_pref/shared_key.dart';
 import 'package:nylo_framework/nylo_framework.dart';
-import 'package:woosignal/models/response/coupon.dart';
-import 'package:woosignal/models/response/tax_rate.dart';
+import '../models/core/coupon.dart';
+import '../models/core/tax_rate.dart';
 
 class CheckoutSession {
   bool? shipToDifferentAddress = false;

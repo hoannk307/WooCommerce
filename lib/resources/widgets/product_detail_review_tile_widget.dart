@@ -12,7 +12,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/bootstrap/helpers.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:nylo_framework/nylo_framework.dart';
-import 'package:woosignal/models/response/product_review.dart';
+import '../../app/models/core/product_review.dart';
 
 class ProductDetailReviewTileWidget extends StatefulWidget {
   ProductDetailReviewTileWidget({Key? key, required this.productReview});

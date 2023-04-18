@@ -18,9 +18,9 @@ import 'package:flutter_app/bootstrap/helpers.dart';
 import 'package:flutter_app/resources/pages/checkout_confirmation_page.dart';
 import 'package:flutter_app/resources/widgets/checkout_paypal.dart';
 import 'package:nylo_framework/nylo_framework.dart';
-import 'package:woosignal/models/payload/order_wc.dart';
-import 'package:woosignal/models/response/order.dart';
-import 'package:woosignal/models/response/tax_rate.dart';
+import '../../models/core/order_wc.dart';
+import '../../models/core/order.dart';
+import '../../models/core/tax_rate.dart';
 
 payPalPay(context,
     {required CheckoutConfirmationPageState state, TaxRate? taxRate}) async {

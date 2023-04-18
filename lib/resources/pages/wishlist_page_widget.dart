@@ -13,7 +13,7 @@ import 'package:flutter_app/bootstrap/helpers.dart';
 import 'package:flutter_app/resources/widgets/app_loader_widget.dart';
 import 'package:flutter_app/resources/widgets/cached_image_widget.dart';
 import 'package:nylo_framework/nylo_framework.dart';
-import 'package:woosignal/models/response/products.dart';
+import '../../app/models/core/products.dart';
 
 class WishListPageWidget extends StatefulWidget {
   @override

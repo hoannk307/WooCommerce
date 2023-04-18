@@ -16,9 +16,9 @@ import 'package:flutter_app/app/models/cart_line_item.dart';
 import 'package:flutter_app/app/models/checkout_session.dart';
 import 'package:flutter_app/bootstrap/app_helper.dart';
 import 'package:flutter_app/bootstrap/shared_pref/sp_auth.dart';
-import 'package:woosignal/models/payload/order_wc.dart';
-import 'package:woosignal/models/response/tax_rate.dart';
-import 'package:woosignal/models/response/woosignal_app.dart';
+import '../../app/models/core/order_wc.dart';
+import '../../app/models/core/tax_rate.dart';
+import '../../app/models/core/woosignal_app.dart';
 
 Future<OrderWC> buildOrderWC({TaxRate? taxRate, bool markPaid = true}) async {
   CheckoutSession checkoutSession = CheckoutSession.getInstance;

@@ -10,8 +10,8 @@
 
 import 'package:flutter_app/bootstrap/helpers.dart';
 import 'package:nylo_framework/nylo_framework.dart';
-import 'package:woosignal/models/response/product_variation.dart';
-import 'package:woosignal/models/response/products.dart' as ws_product;
+import '../models/core/product_variation.dart';
+import '../models/core/products.dart' as ws_product;
 
 class CartLineItem {
   String? name;

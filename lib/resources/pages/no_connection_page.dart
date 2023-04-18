@@ -14,7 +14,7 @@ import 'package:flutter_app/bootstrap/helpers.dart';
 import 'package:flutter_app/resources/widgets/buttons.dart';
 import 'package:flutter_app/resources/widgets/safearea_widget.dart';
 import 'package:nylo_framework/nylo_framework.dart';
-import 'package:woosignal/models/response/woosignal_app.dart';
+import '../../app/models/core/woosignal_app.dart';
 
 class NoConnectionPage extends StatefulWidget {
   NoConnectionPage();

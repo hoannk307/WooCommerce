@@ -17,7 +17,7 @@ import 'package:flutter_app/resources/widgets/app_loader_widget.dart';
 import 'package:flutter_app/resources/widgets/buttons.dart';
 import 'package:flutter_app/resources/widgets/safearea_widget.dart';
 import 'package:nylo_framework/nylo_framework.dart';
-import 'package:woosignal/models/response/coupon.dart';
+import '../../app/models/core/coupon.dart';
 
 class CouponPage extends StatefulWidget {
   @override
