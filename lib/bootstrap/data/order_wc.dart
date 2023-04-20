@@ -35,7 +35,7 @@ Future<OrderWC> buildOrderWC({TaxRate? taxRate, bool markPaid = true}) async {
 
   orderWC.setPaid = markPaid;
   orderWC.status = "pending";
-  orderWC.currency = wooSignalApp.currencyMeta!.code!.toUpperCase();
+  //orderWC.currency = wooSignalApp.currencyMeta!.code!.toUpperCase();
   orderWC.customerId = (wooSignalApp.wpLoginEnabled == 1)
       ? int.parse(await (readUserId()) ?? "0")
       : 0;

@@ -64,23 +64,22 @@ class WooSignal {
 
   /// Initialize the class
   Future<void> init({required String? appKey, bool debugMode = false}) async {
-    assert(appKey != null && appKey != "",
-        "Provide a valid app key. Visit https://woosignal.com");
-    _apiProvider = ApiProvider(
-        appKey: appKey!, debugMode: debugMode, version: wooSignalVersion);
+    // assert(appKey != null && appKey != "",
+    //     "Provide a valid app key. Visit https://woosignal.com");
+    _apiProvider = ApiProvider(version: "1.0");
     setDebugMode(debugMode);
     await _apiProvider.init();
   }
 
   /// Set the FCM token for notifications
   void setFcmToken(String token) {
-    _apiProvider.setFcmToken(token);
+    // _apiProvider.setFcmToken(token);
   }
 
   /// Enable debug mode for logging information
   void setDebugMode(bool debugMode) {
     _debugMode = debugMode;
-    _apiProvider.setDebugMode(debugMode);
+    // _apiProvider.setDebugMode(debugMode);
   }
 
   /// Print to the console a [message]
@@ -90,8 +89,7 @@ class WooSignal {
     }
   }
 
-  Map<String, dynamic> _standardPayload(String type, json, String path) =>
-      {"type": type, "payload": json, "path": path};
+  Map<String, dynamic> _standardPayload(json) => {"payload": json};
 
   /// WooSignal Request
   Future<T?> _wooSignalRequest<T>(
@@ -101,9 +99,14 @@ class WooSignal {
       required T Function(dynamic json) jsonResponse,
       String postUrl = "/request"}) async {
     _printLog("Parameters: $payload");
-    payload = _standardPayload(method, payload, path);
+    payload = _standardPayload(payload);
+    dynamic json = "";
+    if (method == "post") {
+      json = await _apiProvider.post(path, payload);
+    } else {
+      json = await _apiProvider.get(path, payload);
+    }
 
-    dynamic json = await _apiProvider.post(postUrl, payload);
     if (json is Map<String, dynamic> && json.containsKey('error')) {
       _printLog(json['error']);
       return null;
@@ -123,14 +126,16 @@ class WooSignal {
 
   /// Get app information from WooSignal
   Future<WooSignalApp?> getApp() async {
-    dynamic response = await _apiProvider.get("/app");
-    if (response == null) {
-      return null;
-    }
-    WooSignalApp wooSignalApp = WooSignalApp.fromJson(response);
+    // dynamic response = await _apiProvider.get("/app");
+    // if (response == null) {
+    //   return null;
+    // }
+    // WooSignalApp wooSignalApp = WooSignalApp.fromJson(response);
 
-    _printLog(wooSignalApp.toString());
-    return wooSignalApp;
+    // _printLog(wooSignalApp.toString());
+    // return wooSignalApp;
+
+    return null;
   }
 
   /// https://woosignal.com/docs/api/1.0/products
@@ -257,7 +262,7 @@ class WooSignal {
     return await _wooSignalRequest<List<ProductVariation>>(
           method: "get",
           payload: payload,
-          path: "products/" + productId.toString() + "/variations",
+          path: "products/$productId/variations",
           jsonResponse: (json) =>
               (json as List).map((i) => ProductVariation.fromJson(i)).toList(),
         ) ??

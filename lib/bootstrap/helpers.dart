@@ -155,7 +155,8 @@ String moneyFormatter(double amount) {
   MoneyFormatter fmf = MoneyFormatter(
     amount: amount,
     settings: MoneyFormatterSettings(
-      symbol: AppHelper.instance.appConfig!.currencyMeta!.symbolNative,
+      // symbol: AppHelper.instance.appConfig!.currencyMeta!.symbolNative,
+      symbol: '',
     ),
   );
   if (appCurrencySymbolPosition == SymbolPositionType.left) {

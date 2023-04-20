@@ -715,7 +715,8 @@ class StoreLogo extends StatelessWidget {
             color: showBgWhite ? Colors.white : Colors.transparent,
             borderRadius: BorderRadius.circular(5)),
         child: CachedImageWidget(
-          image: AppHelper.instance.appConfig!.appLogo,
+          //image: AppHelper.instance.appConfig!.appLogo,
+          image: '',
           height: height,
           placeholder: Container(height: height, width: width),
         ),

@@ -16,40 +16,40 @@
 import './menu_link.dart';
 
 class WooSignalApp {
-  String? appName;
-  String? appLogo;
-  String? appTermsLink;
-  String? appPrivacyLink;
-  int? appDebug;
-  int? appStatus;
+  String? appName = 'Link';
+  String? appLogo = '';
+  String? appTermsLink = '';
+  String? appPrivacyLink = '';
+  int? appDebug = 1;
+  int? appStatus = 1;
   CurrencyMeta? currencyMeta;
-  List<String>? bannerImages;
-  bool? stripeLiveMode;
-  String? stripeAccount;
-  int? wpLoginEnabled;
-  bool? couponEnabled;
-  bool? showProductReviews;
-  bool? showRelatedProducts;
-  bool? showUpsellProducts;
-  String? wpLoginBaseUrl;
-  String? wpLoginForgotPasswordUrl;
-  String? wpLoginWpApiPath;
-  int? productPricesIncludeTax;
-  int? disableShipping;
-  String? theme;
-  String? locale;
-  String? paypalLocale;
-  String? paypalEmail;
-  bool? stripeEnabled;
-  bool? codEnabled;
-  bool? paypalEnabled;
-  bool? wishlistEnabled;
-  bool? paypalLiveMode;
-  String? stripeCountryCode;
-  String? themeFont;
-  Map<String, dynamic>? socialLinks;
+  List<String>? bannerImages = [];
+  bool? stripeLiveMode = true;
+  String? stripeAccount = '';
+  int? wpLoginEnabled = 1;
+  bool? couponEnabled = true;
+  bool? showProductReviews = true;
+  bool? showRelatedProducts = true;
+  bool? showUpsellProducts = true;
+  String? wpLoginBaseUrl = '';
+  String? wpLoginForgotPasswordUrl = '';
+  String? wpLoginWpApiPath = '';
+  int? productPricesIncludeTax = 1;
+  int? disableShipping = 1;
+  String? theme = '';
+  String? locale = '';
+  String? paypalLocale = '';
+  String? paypalEmail = '';
+  bool? stripeEnabled = true;
+  bool? codEnabled = true;
+  bool? paypalEnabled = true;
+  bool? wishlistEnabled = false;
+  bool? paypalLiveMode = true;
+  String? stripeCountryCode = '';
+  String? themeFont = '';
+  Map<String, dynamic>? socialLinks = {};
   List<MenuLink> menuLinks = [];
-  Map<String, dynamic>? themeColors;
+  Map<String, dynamic>? themeColors = {};
 
   WooSignalApp(
       {this.appName,
@@ -83,126 +83,16 @@ class WooSignalApp {
       this.socialLinks,
       this.menuLinks = const [],
       this.themeColors});
-
-  WooSignalApp.fromJson(Map<String, dynamic> json) {
-    appName = json['app_name'];
-    appLogo = json['app_logo'];
-    appTermsLink = json['app_termslink'];
-    appPrivacyLink = json['app_privacylink'];
-    appDebug = json['app_debug'];
-    appStatus = json['app_status'];
-    currencyMeta = json['currency_meta'] != null
-        ? CurrencyMeta.fromJson(json['currency_meta'])
-        : null;
-    bannerImages = json['banner_images'].cast<String>();
-    stripeLiveMode = json['stripe_live_mode'];
-    stripeAccount = json['stripe_account'];
-    wpLoginEnabled = json['wp_login_enabled'];
-    if (json['wishlist_enabled'] is int && json['wishlist_enabled'] == 1) {
-      wishlistEnabled = true;
-    } else {
-      wishlistEnabled = false;
-    }
-    if (json['coupon_enabled'] is int && json['coupon_enabled'] == 1) {
-      couponEnabled = true;
-    } else {
-      couponEnabled = false;
-    }
-    if (json['show_product_reviews'] is int &&
-        json['show_product_reviews'] == 1) {
-      showProductReviews = true;
-    } else {
-      showProductReviews = false;
-    }
-    if (json['show_related_products'] is int &&
-        json['show_related_products'] == 1) {
-      showRelatedProducts = true;
-    } else {
-      showRelatedProducts = false;
-    }
-    if (json['show_upsell_products'] is int &&
-        json['show_upsell_products'] == 1) {
-      showUpsellProducts = true;
-    } else {
-      showUpsellProducts = false;
-    }
-    wpLoginBaseUrl = json['wp_login_base_url'];
-    wpLoginForgotPasswordUrl = json['wp_login_forgot_password_url'];
-    wpLoginWpApiPath = json['wp_login_wp_api_path'];
-    productPricesIncludeTax = json['product_prices_include_tax'];
-    disableShipping = json['disable_shipping'];
-    theme = json['theme'];
-    locale = json['locale'];
-    paypalLocale = json['paypal_locale'] ?? "en-GB";
-    paypalEmail = json['paypal_email'] ?? "";
-    stripeEnabled = (json['stripe_enabled'] ?? 0) == 1 ? true : false;
-    codEnabled = (json['cod_enabled'] ?? 0) == 1 ? true : false;
-    paypalEnabled = (json['paypal_enabled'] ?? 0) == 1 ? true : false;
-    paypalLiveMode = (json['paypal_live_mode'] ?? 0) == 1 ? true : false;
-    stripeCountryCode = json['stripe_country_code'] ?? "GB";
-    if (json.containsKey('theme_font') && json['theme_font'] != null) {
-      themeFont = json['theme_font'];
-    }
-    if (json.containsKey('social_links') &&
-        json['social_links'] is Map<String, dynamic>?) {
-      socialLinks = json['social_links'];
-    }
-    if (json.containsKey('theme_colors') &&
-        json['theme_colors'] is Map<String, dynamic>?) {
-      themeColors = json['theme_colors'];
-    }
-    if (json.containsKey('menu_links')) {
-      menuLinks = List.from(json['menu_links'])
-          .map((bet) => MenuLink.fromJson(bet))
-          .toList();
-    }
-  }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data['app_name'] = appName;
-    data['app_logo'] = appLogo;
-    data['app_termslink'] = appTermsLink;
-    data['app_privacylink'] = appPrivacyLink;
-    data['app_debug'] = appDebug;
-    data['wishlist_enabled'] = wishlistEnabled;
-    data['coupon_enabled'] = couponEnabled;
-    data['app_status'] = appStatus;
-    if (currencyMeta != null) {
-      data['currency_meta'] = currencyMeta!.toJson();
-    }
-    data['banner_images'] = bannerImages;
-    data['stripe_live_mode'] = stripeLiveMode;
-    data['stripe_account'] = stripeAccount;
-    data['wp_login_enabled'] = wpLoginEnabled;
-    data['wp_login_base_url'] = wpLoginBaseUrl;
-    data['wp_login_forgot_password_url'] = wpLoginForgotPasswordUrl;
-    data['wp_login_wp_api_path'] = wpLoginWpApiPath;
-    data['product_prices_include_tax'] = productPricesIncludeTax;
-    data['disable_shipping'] = disableShipping;
-    data['theme'] = theme;
-    data['locale'] = locale;
-    data['paypal_locale'] = paypalLocale;
-    data['paypal_email'] = paypalEmail;
-    data['stripe_enabled'] = stripeEnabled;
-    data['cod_enabled'] = codEnabled;
-    data['paypal_enabled'] = paypalEnabled;
-    data['stripe_country_code'] = stripeCountryCode;
-    data['theme_font'] = themeFont;
-    data['social_links'] = socialLinks;
-    data['theme_colors'] = themeColors;
-    return data;
-  }
 }
 
 class CurrencyMeta {
-  String? symbol;
-  String? name;
-  String? symbolNative;
-  int? decimalDigits;
-  int? rounding;
-  String? code;
-  String? namePlural;
+  String? symbol = '';
+  String? name = '';
+  String? symbolNative = '';
+  int? decimalDigits = 1;
+  int? rounding = 1;
+  String? code = '';
+  String? namePlural = '';
 
   CurrencyMeta(
       {this.symbol,
@@ -212,26 +102,4 @@ class CurrencyMeta {
       this.rounding,
       this.code,
       this.namePlural});
-
-  CurrencyMeta.fromJson(Map<String, dynamic> json) {
-    symbol = json['symbol'];
-    name = json['name'];
-    symbolNative = json['symbol_native'];
-    decimalDigits = json['decimal_digits'];
-    rounding = json['rounding'];
-    code = json['code'];
-    namePlural = json['name_plural'];
-  }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data['symbol'] = symbol;
-    data['name'] = name;
-    data['symbol_native'] = symbolNative;
-    data['decimal_digits'] = decimalDigits;
-    data['rounding'] = rounding;
-    data['code'] = code;
-    data['name_plural'] = namePlural;
-    return data;
-  }
 }

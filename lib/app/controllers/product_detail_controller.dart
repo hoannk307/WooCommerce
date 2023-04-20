@@ -27,21 +27,7 @@ class ProductDetailController extends Controller {
   @override
   construct(BuildContext context) {
     super.construct(context);
-
-    //product = data() as Product?;
-    product = getProducts() as Product?;
-  }
-
-  Future getProducts() async {
-    // Initialize the API
-    WooCommerceAPI wooCommerceAPI = WooCommerceAPI(
-        url: "https://magicskin.com.vn",
-        consumerKey: "ck_f57ead1743b7b24757aa19b6918ab9f32920a353",
-        consumerSecret: "cs_0a56873b3a8b0279d26382223adc427168f551c2");
-
-    // Get data using the "products" endpoint
-    var products = await wooCommerceAPI.getAsync("products/4673");
-    return products;
+    product = data() as Product?;
   }
 
   viewExternalProduct() {
