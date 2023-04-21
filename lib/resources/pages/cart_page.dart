@@ -45,30 +45,35 @@ class _CartPageState extends State<CartPage> {
 
   _cartCheck() async {
     List<CartLineItem> cart = await Cart.getInstance.getCart();
+
     if (cart.isEmpty) {
-      setState(() {
-        _isLoading = false;
-        _isCartEmpty = true;
-      });
-      return;
-    }
-
-    List<Map<String, dynamic>> cartJSON = cart.map((c) => c.toJson()).toList();
-
-    List<dynamic> cartRes =
-        await (appWooSignal((api) => api.cartCheck(cartJSON)));
-    if (cartRes.isEmpty) {
       Cart.getInstance.saveCartToPref(cartLineItems: []);
       setState(() {
-        _isCartEmpty = true;
         _isLoading = false;
+        _isCartEmpty = true;
       });
       return;
     }
-    _cartLines = cartRes.map((json) => CartLineItem.fromJson(json)).toList();
-    if (_cartLines.isNotEmpty) {
-      Cart.getInstance.saveCartToPref(cartLineItems: _cartLines);
-    }
+
+    _cartLines = cart;
+    Cart.getInstance.saveCartToPref(cartLineItems: cart);
+
+    // List<Map<String, dynamic>> cartJSON = cart.map((c) => c.toJson()).toList();
+
+    // List<dynamic> cartRes =
+    //     await (appWooSignal((api) => api.cartCheck(cartJSON)));
+    // if (cartRes.isEmpty) {
+    //   Cart.getInstance.saveCartToPref(cartLineItems: []);
+    //   setState(() {
+    //     _isCartEmpty = true;
+    //     _isLoading = false;
+    //   });
+    //   return;
+    // }
+    // _cartLines = cartRes.map((json) => CartLineItem.fromJson(json)).toList();
+    // if (_cartLines.isNotEmpty) {
+    //   Cart.getInstance.saveCartToPref(cartLineItems: _cartLines);
+    // }
     setState(() {
       _isLoading = false;
     });
