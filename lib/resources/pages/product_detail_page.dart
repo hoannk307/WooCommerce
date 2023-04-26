@@ -231,24 +231,24 @@ class _ProductDetailState extends NyState<ProductDetailPage> {
     return Scaffold(
       appBar: AppBar(
         actions: <Widget>[
-          //if (_wooSignalApp!.wishlistEnabled!)
-          FutureBuildWidget(
-              asyncFuture: hasAddedWishlistProduct(_product!.id),
-              onValue: (dynamic isInFavourites) {
-                return isInFavourites
-                    ? IconButton(
-                        onPressed: () => widget.controller.toggleWishList(
-                            onSuccess: () => setState(() {}),
-                            wishlistAction: WishlistAction.remove),
-                        icon: Icon(Icons.favorite, color: Colors.red))
-                    : IconButton(
-                        onPressed: () => widget.controller.toggleWishList(
-                            onSuccess: () => setState(() {}),
-                            wishlistAction: WishlistAction.add),
-                        icon: Icon(
-                          Icons.favorite_border,
-                        ));
-              }),
+          if (_wooSignalApp!.wishlistEnabled!)
+            FutureBuildWidget(
+                asyncFuture: hasAddedWishlistProduct(_product!.id),
+                onValue: (dynamic isInFavourites) {
+                  return isInFavourites
+                      ? IconButton(
+                          onPressed: () => widget.controller.toggleWishList(
+                              onSuccess: () => setState(() {}),
+                              wishlistAction: WishlistAction.remove),
+                          icon: Icon(Icons.favorite, color: Colors.red))
+                      : IconButton(
+                          onPressed: () => widget.controller.toggleWishList(
+                              onSuccess: () => setState(() {}),
+                              wishlistAction: WishlistAction.add),
+                          icon: Icon(
+                            Icons.favorite_border,
+                          ));
+                }),
           CartIconWidget(),
         ],
         title: StoreLogo(
