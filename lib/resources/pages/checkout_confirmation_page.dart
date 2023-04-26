@@ -223,23 +223,25 @@ class CheckoutConfirmationPageState extends NyState<CheckoutConfirmationPage> {
                         _getTaxes();
                       },
                     ),
-                    CheckoutPaymentTypeWidget(
-                      context: context,
-                      checkoutSession: checkoutSession,
-                      resetState: () => setState(() {}),
-                    ),
-                    CheckoutShippingTypeWidget(
-                      context: context,
-                      checkoutSession: checkoutSession,
-                      resetState: () => setState(() {}),
-                      wooSignalApp: _wooSignalApp,
-                    ),
+                    // CheckoutPaymentTypeWidget(
+                    //   context: context,
+                    //   checkoutSession: checkoutSession,
+                    //   resetState: () => setState(() {}),
+                    // ),
+                    // CheckoutShippingTypeWidget(
+                    //   context: context,
+                    //   checkoutSession: checkoutSession,
+                    //   resetState: () => setState(() {}),
+                    //   wooSignalApp: _wooSignalApp,
+                    // ),
+
                     if (_wooSignalApp!.couponEnabled == true)
                       CheckoutSelectCouponWidget(
                         context: context,
                         checkoutSession: checkoutSession,
                         resetState: () => setState(() {}),
                       ),
+
                     Container(
                       decoration: BoxDecoration(
                         boxShadow: wsBoxShadow(),
@@ -400,16 +402,17 @@ class CheckoutConfirmationPageState extends NyState<CheckoutConfirmationPage> {
       return;
     }
 
-    if (checkoutSession.paymentType == null) {
-      showToastNotification(
-        context,
-        title: trans("Oops"),
-        description: trans("Please select a payment method to proceed"),
-        style: ToastNotificationStyleType.WARNING,
-        icon: Icons.payment,
-      );
-      return;
-    }
+    // ---------------- Bỏ qua phần chọn phương thức thanh toán ------------------
+    // if (checkoutSession.paymentType == null) {
+    //   showToastNotification(
+    //     context,
+    //     title: trans("Oops"),
+    //     description: trans("Please select a payment method to proceed"),
+    //     style: ToastNotificationStyleType.WARNING,
+    //     icon: Icons.payment,
+    //   );
+    //   return;
+    // }
 
     if (_wooSignalApp!.disableShipping == 0 &&
         checkoutSession.shippingType?.minimumValue != null) {
@@ -431,16 +434,16 @@ class CheckoutConfirmationPageState extends NyState<CheckoutConfirmationPage> {
       }
     }
 
-    bool appStatus = await (appWooSignal((api) => api.checkAppStatus()));
+    // bool appStatus = await (appWooSignal((api) => api.checkAppStatus()));
 
-    if (!appStatus) {
-      showToastNotification(context,
-          title: trans("Sorry"),
-          description: trans("Retry later"),
-          style: ToastNotificationStyleType.INFO,
-          duration: Duration(seconds: 3));
-      return;
-    }
+    // if (!appStatus) {
+    //   showToastNotification(context,
+    //       title: trans("Sorry"),
+    //       description: trans("Retry later"),
+    //       style: ToastNotificationStyleType.INFO,
+    //       duration: Duration(seconds: 3));
+    //   return;
+    // }
 
     if (_isProcessingPayment == true) {
       return;

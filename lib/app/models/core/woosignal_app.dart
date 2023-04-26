@@ -35,7 +35,7 @@ class WooSignalApp {
   String? wpLoginForgotPasswordUrl = '';
   String? wpLoginWpApiPath = '';
   int? productPricesIncludeTax = 1;
-  int? disableShipping = 1;
+  int? disableShipping = 0;
   String? theme = '';
   String? locale = '';
   String? paypalLocale = '';
