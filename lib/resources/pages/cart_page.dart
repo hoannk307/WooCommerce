@@ -97,17 +97,17 @@ class _CartPageState extends State<CartPage> {
       return;
     }
 
-    if (!cartLineItems.every(
-        (c) => c.stockStatus == 'instock' || c.stockStatus == 'onbackorder')) {
-      showToastNotification(
-        context,
-        title: trans("Cart"),
-        description: trans("There is an item out of stock"),
-        style: ToastNotificationStyleType.WARNING,
-        icon: Icons.shopping_cart,
-      );
-      return;
-    }
+    // if (!cartLineItems.every(
+    //     (c) => c.stockStatus == 'instock' || c.stockStatus == 'onbackorder')) {
+    //   showToastNotification(
+    //     context,
+    //     title: trans("Cart"),
+    //     description: trans("There is an item out of stock"),
+    //     style: ToastNotificationStyleType.WARNING,
+    //     icon: Icons.shopping_cart,
+    //   );
+    //   return;
+    // }
 
     CheckoutSession.getInstance.initSession();
     CustomerAddress? sfCustomerAddress =
