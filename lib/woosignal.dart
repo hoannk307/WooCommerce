@@ -98,8 +98,8 @@ class WooSignal {
       required String path,
       required T Function(dynamic json) jsonResponse,
       String postUrl = "/request"}) async {
-    _printLog("Parameters: $payload");
-    payload = _standardPayload(payload);
+    _printLog("---------------------------------Parameters: $payload");
+    //payload = _standardPayload(payload);
     dynamic json = "";
     if (method == "post") {
       json = await _apiProvider.post(path, payload);

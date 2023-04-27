@@ -104,8 +104,17 @@ class ApiProvider {
     print("WOOSIGNAL LOG: $log");
   }
 
+  String authenURL(url) {
+    bool containsQueryParams = url.toString().contains("?");
+    return url +
+        (containsQueryParams == true
+            ? "&consumer_key=$consumerKey&consumer_secret=this.consumerSecret"
+            : "?consumer_key=$consumerKey&consumer_secret=$consumerSecret");
+  }
+
   /// HTTP POST request using a [url] and [data] payload
   Future<dynamic> post(url, data) async {
+    url = authenURL(url);
     try {
       Response response =
           await _dio.post(url, data: {"data": json.encode(data)});
@@ -118,11 +127,7 @@ class ApiProvider {
 
   /// HTTP GET request using a [url]
   Future<dynamic> get(url, data) async {
-    bool containsQueryParams = url.contains("?");
-    url = url +
-        (containsQueryParams == true
-            ? "&consumer_key=$consumerKey&consumer_secret=this.consumerSecret"
-            : "?consumer_key=$consumerKey&consumer_secret=$consumerSecret");
+    url = authenURL(url);
     try {
       Response response = await _dio.get(url, queryParameters: data);
       return response.data;
